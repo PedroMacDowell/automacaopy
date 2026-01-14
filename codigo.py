@@ -18,30 +18,31 @@ pyautogui.sleep(3)
 import pandas
 tabela = pandas.read_csv("produtos.csv")
 print(tabela)
-pyautogui.click(x=801, y=261)
-pyautogui.write("MOLO000251")
-pyautogui.press("tab")
+for linha in tabela.index:
+        
+    pyautogui.click(x=801, y=261)
+    codigo = str(tabela.loc[linha, "codigo"])
+    pyautogui.write(codigo)
+    pyautogui.press("tab")
+    marca = str(tabela.loc[linha, "marca"])
+    pyautogui.write(marca)
+    pyautogui.press("tab")
+    tipo = str(tabela.loc[linha, "tipo"])
+    pyautogui.write(tipo)
+    pyautogui.press("tab")
+    categoria = str(tabela.loc[linha, "categoria"])
+    pyautogui.write(categoria)
+    pyautogui.press("tab")
+    preco = str(tabela.loc[linha, "preco_unitario"])
+    pyautogui.write(preco)
+    pyautogui.press("tab")
+    custo = str(tabela.loc[linha, "custo"])
+    pyautogui.write(custo)
+    pyautogui.press("tab")
+    obs = str(tabela.loc[linha, "obs"])
+    pyautogui.write(obs)
+    pyautogui.press("tab")
 
-pyautogui.write("Logitech")
-pyautogui.press("tab")
+    pyautogui.press("enter")
 
-pyautogui.write("Mouse")
-pyautogui.press("tab")
-
-pyautogui.write("Periferico")
-pyautogui.press("tab")
-
-pyautogui.write("29.50")
-pyautogui.press("tab")
-
-pyautogui.write("6.50")
-pyautogui.press("tab")
-
-pyautogui.write("NaN")
-pyautogui.press("tab")
-
-pyautogui.press("enter")
-
-pyautogui.scroll(5000)
-
-
+    pyautogui.scroll(5000)
